@@ -1,5 +1,5 @@
 #
-#   A Dockerfile of the test web application written in Golang.
+#   A Dockerfile for the test web application written in Golang.
 #   The image size at the moment of building was 7.32 MB.
 #   DOC: Apr 24, 2023
 #
