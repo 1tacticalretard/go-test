@@ -27,7 +27,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags:${{ steps.aws_login.outputs.registry }}/go-test: ${{ github.run_number }}
+        tags: ${{ steps.aws_login.outputs.registry }}/go-test:${{ github.run_number }}
 
     - name: Log out of Amazon ECR
       if: always()
