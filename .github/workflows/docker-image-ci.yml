@@ -31,7 +31,3 @@ jobs:
       with:
         push: true
         tags: ${{ steps.ecr_login.outputs.registry }}/go-test:${{ github.run_number }}
-
-    #- name: Log out of Amazon ECR
-    #  if: always()
-    #  run: docker logout ${{ steps.ecr_login.outputs.registry }}
