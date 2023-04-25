@@ -21,13 +21,11 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.aws_public_key }}
         aws-secret-access-key: ${{ secrets.aws_private_key}}
-        aws-region: ${{ secrets.aws_region }}
+        aws-region: us-east-1
 
     - name: Build and Push to ECR
       uses: docker/build-push-action@v2
       with:
-        context: ./
-        file: ./Dockerfile
         push: true
         tags: ${{ secrets.aws_ecr_uri }}:latest
 
