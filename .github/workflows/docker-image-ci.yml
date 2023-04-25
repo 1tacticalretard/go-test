@@ -31,5 +31,5 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          ${{ secrets.ecr_repo_uri }}:${{github.sha}}
+          ${{ secrets.ecr_repo_uri }}:${{github.sha}},
           ${{ secrets.ecr_repo_uri }}:latest
