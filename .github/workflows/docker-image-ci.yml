@@ -38,5 +38,5 @@ jobs:
         push: true
         platforms: linux/amd64
         tags: |
-          ${{ steps.ecr_login.outputs.registry }}:${{github.sha}}
-          ${{ steps.ecr_login.outputs.registry }}:latest
+          ${{ steps.ecr_login.outputs.registry }}/go-test:${{github.sha}}
+          ${{ steps.ecr_login.outputs.registry }}/go-test:latest
