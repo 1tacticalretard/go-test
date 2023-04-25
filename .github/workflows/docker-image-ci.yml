@@ -28,11 +28,11 @@ jobs:
     - name: Build and tag Docker image
       id: build-image
       run: |
-        docker build -t ${{  secrets.ecr_repo_uri  }}:$GITHUB_SHA .
-        docker tag ${{  secrets.ecr_repo_uri  }}:$GITHUB_SHA ${{  secrets.ecr_repo_uri  }}:latest
+        docker build -t go-test:$GITHUB_SHA .
+        docker tag go-test:$GITHUB_SHA go-test:latest
         
     - name: Push Docker image to Amazon ECR
       id: push-image
       run: |
-        docker push ${{  secrets.ecr_repo_uri  }}:$GITHUB_SHA
-        docker push ${{  secrets.ecr_repo_uri  }}:latest
+        docker push go-test:$GITHUB_SHA
+        docker push go-test:latest
