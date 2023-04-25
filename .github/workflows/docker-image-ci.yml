@@ -30,4 +30,4 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.AWS_ECR_REPO_URI }}:latest
+        tags: ${{ secrets.ecr_repo_uri }}:latest
