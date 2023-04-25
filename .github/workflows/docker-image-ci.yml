@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2    
+      uses: actions/checkout@v3    
   
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.aws_public_key }}
         aws-secret-access-key: ${{ secrets.aws_private_key}}
@@ -25,10 +25,10 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Set up QEMU
-      uses: docker/setup-qemu-action@v1
+      uses: docker/setup-qemu-action@v2
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+      uses: docker/setup-buildx-action@v2
 
     - name: Build and Push to ECR
       uses: docker/build-push-action@v2
