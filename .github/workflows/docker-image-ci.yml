@@ -39,4 +39,3 @@ jobs:
         platforms: linux/amd64
         tags: |
           ${{ steps.ecr_login.outputs.registry }}/go-test:${{github.sha}}
-          ${{ steps.ecr_login.outputs.registry }}/go-test:latest
