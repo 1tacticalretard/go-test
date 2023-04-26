@@ -14,4 +14,5 @@ RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /bin/go-test_executable
 
 FROM scratch
 COPY --from=build_step /bin/go-test_executable /bin/go-test_executable
+EXPOSE 8080
 ENTRYPOINT ["/bin/go-test_executable"]
