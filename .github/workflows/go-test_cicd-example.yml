@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  push_to_ECR:
+  rebuild_reset_restart:
 
     runs-on: ubuntu-latest
     steps:
@@ -40,3 +40,18 @@ jobs:
         tags: |
           ${{ steps.ecr_login.outputs.registry }}/go-test:${{github.sha}}
           ${{ steps.ecr_login.outputs.registry }}/go-test:latest
+
+    - name: Render Amazon ECS task definition
+      id: render-web-container
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: go-test
+        image: ${{ steps.ecr_login.outputs.registry }}/go-test:latest
+    
+    - name: Deploy to Amazon ECS service
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.render-web-container.outputs.task-definition }}
+        service: go-test-service
+        cluster: go-test-cluster
