@@ -1,2 +1,5 @@
 *.mod
 *.sum
+*.tfstate*
+*.tfvars
+.terraform*
