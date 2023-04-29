@@ -1,17 +1,16 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:289002034845:task-definition/go-test-td:34",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:289002034845:task-definition/go-test-td:38",
     "containerDefinitions": [
         {
             "name": "go-test",
-            "image": "289002034845.dkr.ecr.us-east-1.amazonaws.com/go-test:a61c3c3274c5111d2d31e498821e6b84e6686ded",
-            "cpu": 0,
+            "image": "289002034845.dkr.ecr.us-east-1.amazonaws.com/go-test:latest",
+            "cpu": 128,
+            "memory": 128,
             "portMappings": [
                 {
-                    "name": "go-test-8080-tcp",
                     "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "hostPort": 80,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
@@ -21,43 +20,32 @@
         }
     ],
     "family": "go-test-td",
-    "taskRoleArn": "arn:aws:iam::289002034845:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::289002034845:role/ecsTaskExecutionRole",
-    "revision": 34,
+    "revision": 38,
     "volumes": [],
-    "status": "ACTIVE",
+    "status": "DELETE_IN_PROGRESS",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
         },
         {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
             "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
-    "requiresCompatibilities": [
+        "EXTERNAL",
         "EC2"
     ],
     "cpu": "128",
     "memory": "128",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-04-29T12:10:09.242Z",
-    "registeredBy": "arn:aws:iam::289002034845:user/go-test-user",
-    "tags": []
+    "registeredAt": "2023-04-29T12:38:21.384Z",
+    "deregisteredAt": "2023-04-29T12:57:12.018Z",
+    "registeredBy": "arn:aws:iam::289002034845:user/terraform",
+    "tags": [
+        {
+            "key": "Name",
+            "value": "go-test"
+        }
+    ]
 }
