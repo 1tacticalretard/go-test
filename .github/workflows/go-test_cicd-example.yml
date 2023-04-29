@@ -44,7 +44,7 @@ jobs:
     - name: Download task definition
       id: get_task_definition
       run: |
-        aws ecs describe-task-definition --task-definition my-test-td --query taskDefinition > task-definition.json
+        aws ecs describe-task-definition --task-definition go-test-td --query taskDefinition > task-definition.json
 
     - name: Render Amazon ECS task definition
       id: render-web-container
