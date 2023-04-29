@@ -40,10 +40,6 @@ jobs:
         tags: |
           ${{ steps.ecr_login.outputs.registry }}/go-test:${{github.sha}}
           ${{ steps.ecr_login.outputs.registry }}/go-test:latest
-          
-    - name: Download task definition
-      run: |
-        aws ecs describe-task-definition --task-definition go-test-td --query taskDefinition > task-definition.json
 
     - name: Render Amazon ECS task definition
       id: render-web-container
