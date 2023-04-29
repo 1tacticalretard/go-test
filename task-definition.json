@@ -23,7 +23,6 @@
     "family": "go-test-td",
     "taskRoleArn": "arn:aws:iam::289002034845:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::289002034845:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
     "revision": 34,
     "volumes": [],
     "status": "ACTIVE",
