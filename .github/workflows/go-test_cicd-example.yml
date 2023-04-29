@@ -42,7 +42,6 @@ jobs:
           ${{ steps.ecr_login.outputs.registry }}/go-test:latest
           
     - name: Download task definition
-      id: get_task_definition
       run: |
         aws ecs describe-task-definition --task-definition go-test-td --query taskDefinition > task-definition.json
 
@@ -50,7 +49,7 @@ jobs:
       id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ steps.get_task_definition.outputs.task-definition }}
+        task-definition: task-definition.json
         container-name: go-test
         image: ${{ steps.ecr_login.outputs.registry }}/go-test:${{github.sha}}
     
