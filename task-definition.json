@@ -1,66 +1,51 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:289002034845:task-definition/go-test-td:2",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:289002034845:task-definition/go-test-td:38",
     "containerDefinitions": [
         {
             "name": "go-test",
-            "image": "289002034845.dkr.ecr.us-east-1.amazonaws.com/go-test:c96815a25ffe19ecf70cdce66d2986afddb40c85",
-            "cpu": 0,
+            "image": "289002034845.dkr.ecr.us-east-1.amazonaws.com/go-test:latest",
+            "cpu": 128,
+            "memory": 128,
             "portMappings": [
                 {
-                    "name": "go-test-8080-tcp",
                     "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "hostPort": 80,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": []
+            "volumesFrom": []
         }
     ],
     "family": "go-test-td",
-    "taskRoleArn": "arn:aws:iam::289002034845:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::289002034845:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 38,
     "volumes": [],
-    "status": "ACTIVE",
+    "status": "DELETE_IN_PROGRESS",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
         },
         {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
             "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
-    "requiresCompatibilities": [
+        "EXTERNAL",
         "EC2"
     ],
-    "cpu": "1024",
-    "memory": "3072",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-04-26T19:16:18.876Z",
-    "registeredBy": "arn:aws:iam::289002034845:root",
-    "tags": []
+    "cpu": "128",
+    "memory": "128",
+    "registeredAt": "2023-04-29T12:38:21.384Z",
+    "deregisteredAt": "2023-04-29T12:57:12.018Z",
+    "registeredBy": "arn:aws:iam::289002034845:user/terraform",
+    "tags": [
+        {
+            "key": "Name",
+            "value": "go-test"
+        }
+    ]
 }
