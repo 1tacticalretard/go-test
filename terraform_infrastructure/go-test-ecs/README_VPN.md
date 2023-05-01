@@ -16,3 +16,9 @@ sudo cat /usr/local/openvpn_as/init.log | grep "account with" | sed 's/.*"\(.*\)
     - Private subnet CIDR by default is: `192.168.2.0/24`
 
     Both values can be viewed and modified in `main.tf` file.
+
+The target connection address can be found (and accessed with active VPN connection) at:
+
+    -   `Amazon Elastic Container Service -> Clusters -> go-test-cluster -> Infrastructure -> Container instances -> <container_instance_name> > Resources and Networking > Private IP`
+    - `Amazon EC2 > Instances > go-test-cluster > Networking > Private IP`
+Once VPN connection is stable, and the container instance is up and running, you can view it at http://<your_instance_private_ip_address>/ping . 
