@@ -99,7 +99,7 @@ resource "aws_security_group" "security_group" {
     content {
       from_port   = ingress.value
       to_port     = ingress.value
-      protocol    = "tcp"
+      protocol    = ingress.value == 1194 ? "udp" : "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
