@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "go-test-repo" {
-  name                 = "go-test"
+  name                 = var.common_name
   force_delete         = true
   image_tag_mutability = "MUTABLE"
   image_scanning_configuration {

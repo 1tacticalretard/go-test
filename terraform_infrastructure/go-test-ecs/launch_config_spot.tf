@@ -3,7 +3,7 @@ resource "aws_launch_configuration" "ecs_config_launch_config_spot" {
   image_id                    = data.aws_ami.aws_optimized_ecs.id
   instance_type               = var.instance_type_spot
   spot_price                  = var.spot_bid_price
-  associate_public_ip_address = true
+  associate_public_ip_address = false
   lifecycle {
     create_before_destroy = true
   }
@@ -45,7 +45,7 @@ resource "aws_autoscaling_group" "ecs_cluster_spot" {
   lifecycle {
     create_before_destroy = true
   }
-  vpc_zone_identifier = module.go-test-networking.public_subnet_ids
+  vpc_zone_identifier = module.go-test-networking.private_subnet_ids
   tags = [
     {
       key                 = "Name"

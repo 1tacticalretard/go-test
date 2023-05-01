@@ -10,7 +10,7 @@ module "go-test-networking" {
   vpc_cidr                 = "192.168.0.0/16"
   public_subnet_cidr_list  = ["192.168.1.0/24"]
   private_subnet_cidr_list = ["192.168.2.0/24"]
-  security_group_ports     = ["80", "22", "8080"]
+  security_group_ports     = ["80", "8080", "443", "22", "943", "1194"]
 }
 
 

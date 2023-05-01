@@ -92,7 +92,7 @@ resource "aws_route_table_association" "route_table_association_private" {
 
 resource "aws_security_group" "security_group" {
   name        = "${var.common_name}-security_group"
-  description = "A security group which allows 80, 443, 22, 9090 ports ingress and any port egress."
+  description = "A security group which allows specified ports ingress and any port egress. Port 1194 is hardcoded to UDP protocol."
   vpc_id      = aws_vpc.vpc.id
   dynamic "ingress" {
     for_each = var.security_group_ports
